@@ -75,13 +75,7 @@ namespace cheastionare_auto
 
         private void button6_Click(object sender, EventArgs e)
         {
-            if (FormManager.formStack.Count > 0)
-            {
-                Form previousForm = FormManager.formStack.Pop();
-                previousForm.Show();
-            }
-            this.Hide();
-
+           
         }
     }
 }
