@@ -75,7 +75,7 @@ namespace cheastionare_auto
 
         private void button6_Click(object sender, EventArgs e)
         {
-           
+           //asdasdasd
         }
     }
 }
