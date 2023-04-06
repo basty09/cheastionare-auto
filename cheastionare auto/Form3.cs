@@ -7,17 +7,66 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace cheastionare_auto
-{
+{  
+    
     public partial class Form3 : Form
     {
         private int remainingTime = 30 * 60;
+        private List<Intrebare> intrebari = new List<Intrebare>();
+        private int index;
+        private int ct=0;
         public Form3()
         {
             InitializeComponent();
             timer1Countdown.Start();
+            index = 0;
+        } 
+
+        public Form3(int id)
+        {
+            InitializeComponent();
+            timer1Countdown.Start();
+            index = 0;
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load("intrebari1.xml");
+
+            XmlNodeList intrebariNode = xmlDocument.GetElementsByTagName("intrebare");
+            Console.WriteLine(intrebariNode.Count);
+            foreach(XmlNode xmlNode in intrebariNode)
+            {
+                Intrebare intrebare = new Intrebare();  
+                intrebare.text = xmlNode.SelectSingleNode("text").InnerText;
+                intrebare.raspunsuri = new List<string>();
+                XmlNodeList xmlNodeList = xmlNode.SelectNodes("raspuns"); 
+                for(int i = 0;i<xmlNodeList.Count;i++)
+                {
+                    intrebare.raspunsuri.Add(xmlNodeList[i].InnerText);
+                    if (xmlNodeList[i].Attributes["corect"].Value=="true")
+                    {
+                        intrebare.RaspunsCorect = i;
+
+                    }
+                } 
+                intrebari.Add(intrebare);
+               
+            }
+            showQuestion();
+        } 
+        private void showQuestion()
+        {
+            Intrebare intrebarecurenta = intrebari[index]; 
+            label1.Text=intrebarecurenta.text;
+            foreach(string raspuns in intrebarecurenta.raspunsuri)
+            {
+                checkedListBox1.Items.Add(raspuns); 
+            }
+
+
         }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -67,9 +116,15 @@ namespace cheastionare_auto
             else
             {
                 timer1Countdown.Stop();
-                label1Countdown.Text = "S-a terminat timpul!";
+                Form4 form4 = new Form4(false);
+                form4.WindowState = this.WindowState;
+                this.Hide();
+                form4.ShowDialog();
+                this.Close();
+
             }
         }
+        
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -85,6 +140,68 @@ namespace cheastionare_auto
             }
             this.Hide();
         }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {   
+            int selecteditem=checkedListBox1.SelectedIndex; 
+            if (selecteditem != intrebari[index].RaspunsCorect)
+            {
+                ct++;
+            }
+            index++;
+            checkedListBox1.Items.Clear(); 
+            if(ct==5)
+            {
+
+                Form4 form4 = new Form4(false);
+                form4.WindowState = this.WindowState;
+                this.Hide();
+                form4.ShowDialog();
+                this.Close();
+            }
+            if(index==26)
+            {
+                Form4 form4 = new Form4(true);  
+                form4.WindowState = this.WindowState;
+                this.Hide();
+                form4.ShowDialog();
+                this.Close();
+            }
+            showQuestion();
+            label2.Text = "Raspunsuri corecte: " + (index - ct).ToString() + "/26"; 
+            label3.Text="Raspunsuri gresite: "+(ct).ToString();
+           
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            this.Hide();
+            form.WindowState = this.WindowState;
+            form.Show();
+            this.Close();
+        }
+    }
+    public class Intrebare
+    {
+        public string text;
+        public List<string> raspunsuri;
+        public int RaspunsCorect;
     }
 }
 

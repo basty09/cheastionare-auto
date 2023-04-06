@@ -18,6 +18,14 @@ namespace cheastionare_auto
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+           
+            for(int i = 0; i < 10; i++)
+            {
+                ButonChestionar buton =new ButonChestionar(i+1);
+                buton.Location = new Point(200+i*100,400); 
+                this.Controls.Add(buton); 
+                
+            }
          
         }
         public System.Windows.Forms.Label Timer1Countdown;
@@ -67,7 +75,8 @@ namespace cheastionare_auto
         private void button5_Click(object sender, EventArgs e)
         {
             
-            Form1 form1 = new Form1();
+            Form1 form1 = new Form1(); 
+            form1.WindowState = this.WindowState;
             form1.Show();
             this.Hide();
 
@@ -95,6 +104,15 @@ namespace cheastionare_auto
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             FormManager.formStack.Push(this);
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            this.Hide();
+            form.WindowState = this.WindowState;
+            form.Show();
+            this.Close();
         }
     }
     public class FormManager
