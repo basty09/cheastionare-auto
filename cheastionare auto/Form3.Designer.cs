@@ -1,4 +1,7 @@
-﻿namespace cheastionare_auto
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace cheastionare_auto
 {
     partial class Form3
     {
@@ -93,7 +96,6 @@
             this.label1Countdown.Size = new System.Drawing.Size(76, 29);
             this.label1Countdown.TabIndex = 9;
             this.label1Countdown.Text = "30:00";
-            this.label1Countdown.Click += new System.EventHandler(this.label1_Click);
             // 
             // timer1Countdown
             // 
@@ -108,16 +110,19 @@
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.BackColor = System.Drawing.Color.White;
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Location = new System.Drawing.Point(392, 302);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 124);
+            this.checkedListBox1.Size = new System.Drawing.Size(225, 120);
             this.checkedListBox1.TabIndex = 12;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -146,11 +151,11 @@
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Raspunsuri gresite: 0";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(933, 487);
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.Location = new System.Drawing.Point(913, 487);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 23);
             this.button5.TabIndex = 16;
