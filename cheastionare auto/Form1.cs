@@ -16,6 +16,7 @@ namespace cheastionare_auto
             Form2 form2 = new Form2();
             form2.Show(); 
             form2.WindowState = this.WindowState;
+            form2.seteazaLocatia();
             this.Hide();
         }
         private void Form1_Load(object sender, EventArgs e){}

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -7,23 +8,39 @@ namespace cheastionare_auto
     
     public partial class Form2 : Form 
     {  
-        public System.Windows.Forms.Label Timer1Countdown;        
+        public System.Windows.Forms.Label Timer1Countdown;
+        private List<Button> butoane = new List<Button>();
         public Form2()
         {
             InitializeComponent();
+            
             this.FormBorderStyle = FormBorderStyle.None;
-           
+            
             for(int i = 0; i < 10; i++)
             {
                 ButonChestionar buton =new ButonChestionar(i+1);
-                                        //distanta stanga     distanta dintre butoane    distanta sus
-                buton.Location = new Point(    200      +i*        100,                     400); 
+                butoane.Add(buton);           
                 this.Controls.Add(buton);    
             }
-         
         }
 
-
+        public void seteazaLocatia()
+        {
+            int latimeEcran = this.Width;
+            ButonChestionar butonAux = new ButonChestionar(1);
+            int latimeButon = butonAux.Width;
+            int spatiuIntreButoane = 20;
+            int latimeNecesara = 10 * (latimeButon + spatiuIntreButoane);
+            // ds + 10 * button width + ds = latime ecran
+            int disStanga = (latimeEcran - latimeNecesara) / 2;
+            int spatiuSus = (this.Height - butonAux.Height) / 2;
+            int i = 0;
+            foreach (Button buton in butoane)
+            {
+                buton.Location = new Point(disStanga + i * (latimeButon + spatiuIntreButoane), spatiuSus);
+                i++;
+            }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1();
@@ -39,8 +56,7 @@ namespace cheastionare_auto
 
         private void button2_Click(object sender, EventArgs e)
         {
-          
-           this.Close();
+            Application.Exit();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -53,6 +69,7 @@ namespace cheastionare_auto
             {
                 this.WindowState = FormWindowState.Normal;
             }
+            seteazaLocatia();
         }
 
         private void button4_Click(object sender, EventArgs e)
