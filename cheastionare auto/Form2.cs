@@ -16,7 +16,8 @@ namespace cheastionare_auto
             for(int i = 0; i < 10; i++)
             {
                 ButonChestionar buton =new ButonChestionar(i+1);
-                buton.Location = new Point(200+i*100,400); 
+                                        //distanta stanga     distanta dintre butoane    distanta sus
+                buton.Location = new Point(    200      +i*        100,                     400); 
                 this.Controls.Add(buton);    
             }
          
