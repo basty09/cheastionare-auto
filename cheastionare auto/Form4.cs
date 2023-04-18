@@ -10,11 +10,11 @@ namespace cheastionare_auto
             InitializeComponent(); 
             if(trecut)
             {
-                label1.Text = "Felicitari ai trecut!";  
+                label1.Text = "Felicitari esti admis!";  
             } 
             else
             {
-                label1.Text = "Din pacate ai picat!";
+                label1.Text = "Respins!";
             }
 
         }
@@ -46,15 +46,18 @@ namespace cheastionare_auto
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
             this.Hide();
-            form.WindowState=this.WindowState;
+            form.WindowState = this.WindowState;
             form.Show();
             this.Close();
         }
 
-      
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -104,7 +104,10 @@ namespace cheastionare_auto
 
         private void button1_Click(object sender, EventArgs e)
         {   
-            int selecteditem=checkedListBox1.SelectedIndex; 
+
+            int selecteditem=checkedListBox1.SelectedIndex;
+            if (selecteditem == -1)
+                return;
             if (selecteditem != intrebari[index].RaspunsCorect)
             {
                 ct++;
@@ -131,15 +134,21 @@ namespace cheastionare_auto
             showQuestion();
             label2.Text = "Raspunsuri corecte: " + (index - ct).ToString() + "/26"; 
             label3.Text="Raspunsuri gresite: "+(ct).ToString();
-           
+            
         }
-        private void button5_Click_1(object sender, EventArgs e)
+     
+        private void button6_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
             this.Hide();
             form.WindowState = this.WindowState;
             form.Show();
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
     public class Intrebare
