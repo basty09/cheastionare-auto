@@ -8,7 +8,9 @@ namespace cheastionare_auto
     
     public partial class Form2 : Form 
     {  
-        public System.Windows.Forms.Label Timer1Countdown;
+        public Label Timer1Countdown;
+        //lista cu butoanele cu chestionare
+        //o folosim pentru a le centra in centrul ecranului 
         private List<Button> butoane = new List<Button>();
         public Form2()
         {
@@ -26,6 +28,7 @@ namespace cheastionare_auto
 
         public void seteazaLocatia()
         {
+            //functie care se asigura ca butoanele sunt asezate in centrul ecranului 
             int latimeEcran = this.Width;
             ButonChestionar butonAux = new ButonChestionar(1);
             int latimeButon = butonAux.Width;
@@ -43,6 +46,7 @@ namespace cheastionare_auto
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            //butonul pentru home 
             Form1 form1 = new Form1();
             form1.Show();
             this.Hide();
@@ -61,6 +65,7 @@ namespace cheastionare_auto
 
         private void button3_Click(object sender, EventArgs e)
         {
+            //butonul de schimbare a dimensiunii ecranului 
             if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
@@ -81,6 +86,7 @@ namespace cheastionare_auto
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
             Form1 form = new Form1();
             this.Hide();
             form.WindowState = this.WindowState;

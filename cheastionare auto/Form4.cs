@@ -7,6 +7,7 @@ namespace cheastionare_auto
     {
         public Form4(bool trecut)
         {
+            //prin trecut ni se comunica daca am trecut sau nu chestionarul
             InitializeComponent(); 
             if(trecut)
             {

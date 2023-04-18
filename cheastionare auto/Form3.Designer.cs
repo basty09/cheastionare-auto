@@ -110,7 +110,7 @@ namespace cheastionare_auto
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(671, 228);
+            this.label1.Location = new System.Drawing.Point(650, 228);
             this.label1.MaximumSize = new System.Drawing.Size(500, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 20);
@@ -124,9 +124,10 @@ namespace cheastionare_auto
             this.checkedListBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.checkedListBox1.BackColor = System.Drawing.Color.White;
+            this.checkedListBox1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.checkedListBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.checkedListBox1.FormattingEnabled = true;
