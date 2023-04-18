@@ -1,4 +1,7 @@
-﻿namespace cheastionare_auto
+﻿using System.Drawing;
+using System.Windows.Forms;
+
+namespace cheastionare_auto
 {
     partial class Form3
     {
@@ -39,7 +42,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -49,7 +52,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::cheastionare_auto.Properties.Resources.window_close_1_16;
-            this.button2.Location = new System.Drawing.Point(963, 12);
+            this.button2.Location = new System.Drawing.Point(1335, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(45, 40);
             this.button2.TabIndex = 6;
@@ -63,7 +66,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Image = global::cheastionare_auto.Properties.Resources.window_restore_5_16;
-            this.button3.Location = new System.Drawing.Point(913, 12);
+            this.button3.Location = new System.Drawing.Point(1285, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(45, 40);
             this.button3.TabIndex = 7;
@@ -77,7 +80,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Image = global::cheastionare_auto.Properties.Resources.window_minimize_14_16;
-            this.button4.Location = new System.Drawing.Point(862, 12);
+            this.button4.Location = new System.Drawing.Point(1234, 12);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(45, 40);
             this.button4.TabIndex = 8;
@@ -86,14 +89,14 @@
             // 
             // label1Countdown
             // 
+            this.label1Countdown.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1Countdown.AutoSize = true;
             this.label1Countdown.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1Countdown.Location = new System.Drawing.Point(908, 150);
+            this.label1Countdown.Location = new System.Drawing.Point(1304, 156);
             this.label1Countdown.Name = "label1Countdown";
             this.label1Countdown.Size = new System.Drawing.Size(76, 29);
             this.label1Countdown.TabIndex = 9;
             this.label1Countdown.Text = "30:00";
-            this.label1Countdown.Click += new System.EventHandler(this.label1_Click);
             // 
             // timer1Countdown
             // 
@@ -102,37 +105,53 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(478, 230);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(650, 228);
+            this.label1.MaximumSize = new System.Drawing.Size(500, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(57, 20);
             this.label1.TabIndex = 11;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // checkedListBox1
             // 
+            this.checkedListBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkedListBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.checkedListBox1.CheckOnClick = true;
+            this.checkedListBox1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.checkedListBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.checkedListBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(56)))), ((int)(((byte)(67)))));
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(392, 302);
+            this.checkedListBox1.Location = new System.Drawing.Point(455, 356);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(120, 124);
+            this.checkedListBox1.Size = new System.Drawing.Size(446, 72);
             this.checkedListBox1.TabIndex = 12;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(643, 230);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(1234, 592);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(126, 23);
             this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
+            this.button1.Text = "Urmatoarea intrebare";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(643, 317);
+            this.label2.Location = new System.Drawing.Point(1058, 168);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 13);
             this.label2.TabIndex = 14;
@@ -140,31 +159,35 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(802, 317);
+            this.label3.Location = new System.Drawing.Point(1192, 168);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Raspunsuri gresite: 0";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // button5
+            // button6
             // 
-            this.button5.Location = new System.Drawing.Point(933, 487);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::cheastionare_auto.Properties.Resources.home_button;
+            this.button6.Location = new System.Drawing.Point(12, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(45, 40);
+            this.button6.TabIndex = 17;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::cheastionare_auto.Properties.Resources.high3;
-            this.ClientSize = new System.Drawing.Size(1020, 522);
-            this.Controls.Add(this.button5);
+            this.ClientSize = new System.Drawing.Size(1392, 678);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
@@ -176,6 +199,7 @@
             this.Controls.Add(this.button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
@@ -194,6 +218,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button5;
+        private Button button6;
     }
 }

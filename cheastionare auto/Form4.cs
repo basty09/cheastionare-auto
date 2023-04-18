@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace cheastionare_auto
@@ -14,14 +7,15 @@ namespace cheastionare_auto
     {
         public Form4(bool trecut)
         {
+            //prin trecut ni se comunica daca am trecut sau nu chestionarul
             InitializeComponent(); 
             if(trecut)
             {
-                label1.Text = "Felicitari ai trecut!";  
+                label1.Text = "Felicitari esti admis!";  
             } 
             else
             {
-                label1.Text = "Din pacate ai picat!";
+                label1.Text = "Respins!";
             }
 
         }
@@ -53,13 +47,18 @@ namespace cheastionare_auto
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
             this.Hide();
-            form.WindowState=this.WindowState;
+            form.WindowState = this.WindowState;
             form.Show();
             this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

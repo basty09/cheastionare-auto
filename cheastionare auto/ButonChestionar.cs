@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace cheastionare_auto
@@ -21,8 +17,9 @@ namespace cheastionare_auto
             Form form=this.FindForm();  
             Form3 form3 = new Form3(id);
             form3.WindowState=form.WindowState;
+            form.Hide();
             form3.ShowDialog();
-
+            form.Close();
         }
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -15,26 +9,31 @@ namespace cheastionare_auto
     public partial class Form3 : Form
     {
         private int remainingTime = 30 * 60;
+        //lista cu intrebari care va citi din xml 
         private List<Intrebare> intrebari = new List<Intrebare>();
-        private int index;
-        private int ct=0;
+        //indexul intrebarii curente
+        private int intrebareaCurenta;
+        private int raspunsuriGresite=0;
         public Form3()
         {
             InitializeComponent();
             timer1Countdown.Start();
-            index = 0;
+            intrebareaCurenta = 0; 
         } 
 
         public Form3(int id)
         {
+            //constructor
             InitializeComponent();
             timer1Countdown.Start();
-            index = 0;
+            intrebareaCurenta = 0;
+            //pregatim citirea din XML
             XmlDocument xmlDocument = new XmlDocument();
-            xmlDocument.Load("intrebari1.xml");
+            xmlDocument.Load("intrebari"+id.ToString()+".xml");
 
             XmlNodeList intrebariNode = xmlDocument.GetElementsByTagName("intrebare");
-            Console.WriteLine(intrebariNode.Count);
+           
+            //preluam fiecare intrebare din xml si o memoram in lista din memorie 
             foreach(XmlNode xmlNode in intrebariNode)
             {
                 Intrebare intrebare = new Intrebare();  
@@ -54,33 +53,19 @@ namespace cheastionare_auto
                
             }
             showQuestion();
+
         } 
         private void showQuestion()
         {
-            Intrebare intrebarecurenta = intrebari[index]; 
+            //functie care afiseaza pe ecran o intrebare 
+            Intrebare intrebarecurenta = intrebari[intrebareaCurenta]; 
             label1.Text=intrebarecurenta.text;
             foreach(string raspuns in intrebarecurenta.raspunsuri)
             {
                 checkedListBox1.Items.Add(raspuns); 
             }
-
-
         }
         
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-            
-            if (FormManager.formStack.Count > 0)
-            {
-                Form previousForm = FormManager.formStack.Pop(); 
-                FormManager.formStack.Push(this);
-                previousForm.Show();
-            }
-            this.Hide();
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -115,52 +100,33 @@ namespace cheastionare_auto
             }
             else
             {
+                //daca a expirat timpul 
                 timer1Countdown.Stop();
                 Form4 form4 = new Form4(false);
                 form4.WindowState = this.WindowState;
                 this.Hide();
                 form4.ShowDialog();
                 this.Close();
-
             }
-        }
-        
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (FormManager.formStack.Count > 0)
-            {
-                Form previousForm = FormManager.formStack.Pop();
-                previousForm.Show();
-            }
-            this.Hide();
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {   
-            int selecteditem=checkedListBox1.SelectedIndex; 
-            if (selecteditem != intrebari[index].RaspunsCorect)
+            //nutonul pentru urmatoarea intrebare
+            int selecteditem=checkedListBox1.SelectedIndex;
+            //daca nu am selectat niciun raspuns, nu facem nimic
+            if (selecteditem == -1)
+                return;
+
+            //daca am selectat raspunsul gresit
+            if (selecteditem != intrebari[intrebareaCurenta].RaspunsCorect)
             {
-                ct++;
+                raspunsuriGresite++;
             }
-            index++;
+            intrebareaCurenta++;
             checkedListBox1.Items.Clear(); 
-            if(ct==5)
+            //daca avem 5 raspunsuri gresite am picat chestionarul 
+            if(raspunsuriGresite==5)
             {
 
                 Form4 form4 = new Form4(false);
@@ -169,7 +135,8 @@ namespace cheastionare_auto
                 form4.ShowDialog();
                 this.Close();
             }
-            if(index==26)
+            //daca am ajus la final inseamna ca am trecut chestionarul 
+            if(intrebareaCurenta==26)
             {
                 Form4 form4 = new Form4(true);  
                 form4.WindowState = this.WindowState;
@@ -178,17 +145,12 @@ namespace cheastionare_auto
                 this.Close();
             }
             showQuestion();
-            label2.Text = "Raspunsuri corecte: " + (index - ct).ToString() + "/26"; 
-            label3.Text="Raspunsuri gresite: "+(ct).ToString();
-           
+            label2.Text = "Raspunsuri corecte: " + (intrebareaCurenta - raspunsuriGresite).ToString() + "/26"; 
+            label3.Text="Raspunsuri gresite: "+(raspunsuriGresite).ToString();
+            
         }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click_1(object sender, EventArgs e)
+     
+        private void button6_Click(object sender, EventArgs e)
         {
             Form1 form = new Form1();
             this.Hide();
@@ -196,9 +158,15 @@ namespace cheastionare_auto
             form.Show();
             this.Close();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     public class Intrebare
     {
+        //clasa folosita pentru memorarea unei intrebari
         public string text;
         public List<string> raspunsuri;
         public int RaspunsCorect;

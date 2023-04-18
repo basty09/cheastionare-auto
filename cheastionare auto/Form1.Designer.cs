@@ -58,7 +58,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Chestionare auto";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button2
             // 
@@ -115,6 +114,7 @@
             this.Controls.Add(this.button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);

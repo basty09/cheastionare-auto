@@ -32,7 +32,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2
@@ -79,22 +79,31 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(534, 277);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(512, 272);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(158, 55);
             this.label1.TabIndex = 16;
             this.label1.Text = "label1";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button5
+            // button6
             // 
-            this.button5.Location = new System.Drawing.Point(1043, 624);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 17;
-            this.button5.Text = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Image = global::cheastionare_auto.Properties.Resources.home_button;
+            this.button6.Location = new System.Drawing.Point(12, 12);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(45, 40);
+            this.button6.TabIndex = 18;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Form4
             // 
@@ -102,17 +111,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::cheastionare_auto.Properties.Resources.high;
             this.ClientSize = new System.Drawing.Size(1130, 659);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form4";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -121,6 +130,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
     }
 }
