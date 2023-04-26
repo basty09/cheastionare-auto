@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="intrebari1.xml" />
+    <Content Include="intrebari2.xml" />
     <None Include="Resources\home-button.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
