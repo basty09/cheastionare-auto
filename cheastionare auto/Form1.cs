@@ -8,7 +8,8 @@ namespace cheastionare_auto
         public Form1()
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.None;
+            this.FormBorderStyle = FormBorderStyle.None; 
+            this.WindowState = FormWindowState.Maximized;
         }
      
         private void button1_Click(object sender, EventArgs e)
@@ -30,17 +31,6 @@ namespace cheastionare_auto
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-
-        }
+       
     }
 }

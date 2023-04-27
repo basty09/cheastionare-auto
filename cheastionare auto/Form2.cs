@@ -63,20 +63,7 @@ namespace cheastionare_auto
             Application.Exit();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //butonul de schimbare a dimensiunii ecranului 
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-            }
-            else
-            {
-                this.WindowState = FormWindowState.Normal;
-            }
-            seteazaLocatia();
-        }
-
+        
         private void button4_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
